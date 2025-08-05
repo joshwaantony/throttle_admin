@@ -1,3 +1,4 @@
+import BikeTable from "@/components/Bike/BikeTable";
 import Login from "@/components/login/Login";
 import Navbar from "@/components/navBar/Navbar";
 import Product from "@/components/product/Product";
@@ -11,6 +12,7 @@ function page() {
     {/* <Login/> */}
     {/* <Product/> */}
     {/* <ViewProducts/> */}
+    <BikeTable/>
 
   </div>;
 }
