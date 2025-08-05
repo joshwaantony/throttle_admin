@@ -1,5 +1,6 @@
 
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -46,13 +47,14 @@ function Login() {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </div>
           </div>
-
+<Link href={"/admin/dashboard"}r>
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white font-medium py-2 rounded"
           >
             Login
           </button>
+          </Link>
         </form>
       </div>
     </div>

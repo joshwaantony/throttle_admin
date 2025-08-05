@@ -300,7 +300,7 @@ export default function BikeTable() {
   };
 
   return (
-    <div className="p-8 bg-white rounded-xl shadow-lg">
+    <div className="p-8">
       <h2 className="text-3xl text-gray-800 font-bold mb-6">Bikes</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full text-left border border-gray-200 rounded-xl">
@@ -328,7 +328,7 @@ export default function BikeTable() {
                 <td className="p-4 text-gray-600">{bike.model}</td>
                 <td className="p-4 font-semibold text-green-600">${bike.price.toFixed(2)}</td>
                 <td className="p-4 text-black">{bike.color}</td>
-                <td className="p-4 flex gap-2">
+                <td className="p-4  pt-10 flex   gap-2">
                   <button
                     onClick={() => openEditModal(bike, index)}
                     className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
@@ -353,8 +353,8 @@ export default function BikeTable() {
 
       {/* Edit Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md">
+        <div className="fixed inset-0 bg-[#08070731]  backdrop-blur-xs flex items-center justify-center z-50">
+          <div className="bg-white border border-gray-300 rounded-lg p-6 w-full max-w-md">
             <h3 className="text-xl font-bold mb-4 text-gray-800">Edit Bike</h3>
             <div className="space-y-3">
               {["brand", "model", "price", "color"].map((field) => (
@@ -392,7 +392,7 @@ export default function BikeTable() {
 
       {/* Delete Confirmation Modal */}
       {isDeleteConfirmOpen && (
-        <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-[#08070731]  backdrop-blur-xs flex items-center justify-center z-50">
           <div className="bg-white border border-[#D0D5DB] p-6 rounded-xl max-w-sm w-full shadow-xl text-center">
             <h3 className="text-lg font-semibold text-gray-800 mb-3">Delete Bike</h3>
             <p className="text-gray-600 mb-6">Are you sure you want to delete this bike?</p>

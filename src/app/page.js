@@ -1,20 +1,15 @@
-import BikeTable from "@/components/Bike/BikeTable";
-import Login from "@/components/login/Login";
-import Navbar from "@/components/navBar/Navbar";
-import Product from "@/components/product/Product";
-import ViewProducts from "@/components/product/ViewProducts";
-import SideBar from "@/components/sideBar/SideBar";
-import React from "react";
+"use client";
 
-function page() {
-  return <div>
-    {/* <SideBar/> */}
-    {/* <Login/> */}
-    {/* <Product/> */}
-    {/* <ViewProducts/> */}
-    <BikeTable/>
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-  </div>;
+export default function Page() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to /login when the page loads
+    router.push("/login");
+  }, [router]);
+
+  return <div></div>;
 }
-
-export default page;
