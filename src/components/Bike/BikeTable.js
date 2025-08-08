@@ -1,8 +1,3 @@
-
-
-
-
-
 // "use client";
 
 // import React, { useState } from "react";
@@ -211,7 +206,6 @@
 //   );
 // }
 
-
 "use client";
 
 import React, { useState } from "react";
@@ -327,7 +321,10 @@ export default function BikeTable() {
           </thead>
           <tbody className="divide-y divide-gray-200">
             {bikes.map((bike, index) => (
-              <tr key={index} className="hover:bg-gray-50 transition duration-200">
+              <tr
+                key={index}
+                className="hover:bg-gray-50 transition duration-200"
+              >
                 <td className="p-4">
                   <img
                     src={bike.image}
@@ -337,7 +334,9 @@ export default function BikeTable() {
                 </td>
                 <td className="p-4 font-medium text-gray-700">{bike.brand}</td>
                 <td className="p-4 text-gray-600">{bike.model}</td>
-                <td className="p-4 font-semibold text-green-600">${bike.price.toFixed(2)}</td>
+                <td className="p-4 font-semibold text-green-600">
+                  ${bike.price.toFixed(2)}
+                </td>
                 <td className="p-4 text-black">{bike.color}</td>
                 <td className="p-4 pt-10 flex gap-2">
                   <button
@@ -383,14 +382,24 @@ export default function BikeTable() {
                 </div>
               ))}
               {/* Image Upload */}
+
               <div>
-                <label className="block text-sm font-medium text-gray-700">Bike Image</label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  className="mt-1 block w-full text-sm text-gray-600"
-                />
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Upload Image
+                </label>
+
+                <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition">
+                  <span className="text-gray-500 text-sm">
+                    Click or drag image to upload
+                  </span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+                </label>
+
                 {currentBike.image && (
                   <img
                     src={currentBike.image}
@@ -422,8 +431,12 @@ export default function BikeTable() {
       {isDeleteConfirmOpen && (
         <div className="fixed inset-0 bg-[#08070731] backdrop-blur-xs flex items-center justify-center z-50">
           <div className="bg-white border border-[#D0D5DB] p-6 rounded-xl max-w-sm w-full shadow-xl text-center">
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">Delete Bike</h3>
-            <p className="text-gray-600 mb-6">Are you sure you want to delete this bike?</p>
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">
+              Delete Bike
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Are you sure you want to delete this bike?
+            </p>
             <div className="flex justify-center gap-4">
               <button
                 onClick={() => setIsDeleteConfirmOpen(false)}
