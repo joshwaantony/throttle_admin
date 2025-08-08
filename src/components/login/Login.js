@@ -1,18 +1,36 @@
-
 "use client";
-import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { adminLogin } from "@/api/admin";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const router = useRouter();
+
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Logging in with:", email, password);
-    // Add authentication logic here
+
+    try {
+      const payload = {
+        Username: username.trim(),
+        Password: password.trim(),
+      };
+
+      const res = await adminLogin(payload);
+
+      if (res?.message === "Login Successfully") {
+        router.push("/admin/dashboard");
+      } else {
+        alert("Login failed: " + (res?.message || "Invalid credentials"));
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Login error. Please try again.");
+    }
   };
 
   return (
@@ -24,14 +42,14 @@ function Login() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <input
-            type="email"
+            type="text"
             placeholder="Email"
             className="w-full px-4 py-2 rounded bg-white text-black focus:outline-none"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUserName(e.target.value)}
+            required
           />
 
-          {/* Password input with icon */}
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
@@ -39,6 +57,7 @@ function Login() {
               className="w-full px-4 py-2 rounded bg-white text-black focus:outline-none pr-10"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <div
               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 cursor-pointer"
@@ -47,14 +66,13 @@ function Login() {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </div>
           </div>
-<Link href={"/admin/dashboard"}r>
+
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white font-medium py-2 rounded"
           >
             Login
           </button>
-          </Link>
         </form>
       </div>
     </div>
