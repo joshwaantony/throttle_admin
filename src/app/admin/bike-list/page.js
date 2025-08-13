@@ -96,10 +96,18 @@ function AddBikeModal({ onClose, onSubmit }) {
       <div className="bg-white text-black p-6 rounded-lg w-full max-w-md shadow-lg">
         <h2 className="text-xl font-semibold mb-4">Add New Bike</h2>
         <div className="space-y-4">
+            <input
+            type="text"
+            name="name"
+            placeholder="Brand"
+            value={form.name}
+            onChange={handleChange}
+            className="w-full border p-2 rounded"
+          />
           <input
             type="text"
             name="name"
-            placeholder="Bike Name"
+            placeholder="Model"
             value={form.name}
             onChange={handleChange}
             className="w-full border p-2 rounded"
