@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -19,7 +18,6 @@ import {
   FaBolt,
   FaMotorcycle,
   FaGasPump,
-  FaTrophy,
   FaStar,
   FaRoad,
   FaChevronDown,
@@ -36,8 +34,12 @@ export default function SideBar() {
     { label: "Popular", href: "/admin/add-bike", icon: <FaStar /> },
     { label: "Electric", href: "/admin/add-bike", icon: <FaBolt /> },
     { label: "Adventure", href: "/admin/add-bike", icon: <FaMotorcycle /> },
-    { label: "Scooters", href: "/admin/add-bike", icon: <GiScooter/> },
-    { label: "Best Mileage Bike", href: "/admin/add-bike", icon: <FaGasPump/> },
+    { label: "Scooters", href: "/admin/add-bike", icon: <GiScooter /> },
+    {
+      label: "Best Mileage Bike",
+      href: "/admin/add-bike",
+      icon: <FaGasPump />,
+    },
     { label: "Sports", href: "/admin/add-bike", icon: <FaRoad /> },
     { label: "Cruiser", href: "/admin/add-bike", icon: <FaMotorcycle /> },
   ];
@@ -45,12 +47,23 @@ export default function SideBar() {
   return (
     <div className="flex h-full bg-gray-100">
       <aside className="w-full bg-teal-800 text-white flex flex-col">
-        <div className="p-4 text-2xl font-bold border-b border-teal-700">
-        Throttle Point
+        {/* Header with logo image and title */}
+        <div className="p-4 flex items-center gap-3 border-b border-teal-700">
+          <img
+            src="/throttle-point-tittle-create-a-logo-for-using-bike.png"
+            alt="Throttle Point Logo"
+            className="h-8 w-8 object-contain rounded-full"
+          />
+          <span className="text-xl font-bold">Throttle Point</span>
         </div>
 
+        {/* Navigation */}
         <nav className="flex-1 p-4 space-y-2">
-          <NavItem icon={<FaTachometerAlt />} label="Dashboard" href="/admin/dashboard" />
+          <NavItem
+            icon={<FaTachometerAlt />}
+            label="Dashboard"
+            href="/admin/dashboard"
+          />
 
           {/* Products Dropdown */}
           <div>
@@ -85,14 +98,38 @@ export default function SideBar() {
             </div>
           </div>
 
-          <NavItem icon={<FaList />} label="Product Categories" href="/admin/product-categories" />
-          <NavItem icon={<BiCategoryAlt />} label="Categories" href="/categories" />
-          <NavItem icon={<FaTags />} label="Terms & Policy" href="/terms-policy" />
+          <NavItem
+            icon={<FaList />}
+            label="Product Categories"
+            href="/admin/product-categories"
+          />
+          <NavItem
+            icon={<BiCategoryAlt />}
+            label="Categories"
+            href="/categories"
+          />
+          <NavItem
+            icon={<FaTags />}
+            label="Terms & Policy"
+            href="/terms-policy"
+          />
           <NavItem icon={<FaChartPie />} label="Slides" href="/slides" />
           <NavItem icon={<FaQuestionCircle />} label="FAQs" href="/faqs" />
-          <NavItem icon={<FaUsers />} label="View Customers" href="/admin/view-customer" />
-          <NavItem icon={<FaShoppingCart />} label="View Orders" href="/admin/view-orders" />
-          <NavItem icon={<FaMoneyCheckAlt />} label="View Payments" href="/admin/payment" />
+          <NavItem
+            icon={<FaUsers />}
+            label="View Customers"
+            href="/admin/view-customer"
+          />
+          <NavItem
+            icon={<FaShoppingCart />}
+            label="View Orders"
+            href="/admin/view-orders"
+          />
+          <NavItem
+            icon={<FaMoneyCheckAlt />}
+            label="View Payments"
+            href="/admin/payment"
+          />
           <NavItem icon={<BiSolidUserAccount />} label="Users" href="/users" />
           <NavItem icon={<FaUserCircle />} label="Profile" href="/profile" />
         </nav>
